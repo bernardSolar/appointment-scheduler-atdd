@@ -1,0 +1,30 @@
+<h2>My Appointments</h2>
+
+<% if @appointments.empty? %>
+  <p>You don't have any appointments scheduled. <a href="/appointments/new">Book one now</a>.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @appointments.each do |appointment| %>
+        <tr>
+          <td><%= appointment['date'] %></td>
+          <td><%= appointment['time'] %></td>
+          <td><%= appointment['description'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<p>
+  <a href="/appointments/new">
+    <button type="button">Book New Appointment</button>
+  </a>
+</p>
